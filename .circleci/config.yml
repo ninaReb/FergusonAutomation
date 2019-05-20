@@ -6,7 +6,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
-      steps:
+
+    steps:
       - checkout
       - run: echo "Hello World"
 

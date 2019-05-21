@@ -9,14 +9,16 @@ jobs:
 
     steps:
       - checkout
-      - run: gem install cucumber
-      - run: gem install capybara
-      - run: gem install capybara-webkit
-      - run: gem install selenium-webdriver
-      - run: gem install rails
-      - run: gem install rspec
-      # - run:
-      #   - echo: "gems installed!"
+      - run: bundle install
+      # - run: gem install cucumber
+      # - run: gem install capybara
+      # - run: gem install capybara-webkit
+      # - run: gem install selenium-webdriver
+      # - run: gem install rails
+      # - run: gem install rspec
+      - run:
+        - echo: "gems installed!"
+
 
   build2:
     docker:

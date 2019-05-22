@@ -18,7 +18,7 @@ jobs:
             - vendor/bundle
 
 
-      - run: echo "Rollback" 
+      - run: bundle install
       # - run: gem install cucumber
       # - run: gem install capybara
       # - run: gem install capybara-webkit

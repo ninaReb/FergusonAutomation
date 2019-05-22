@@ -12,7 +12,6 @@ jobs:
 
       - checkout
       - run:
-          command: ls /capy/spec
         - restore_cache:
             key: bundler-{{checksum "Gemfile.lock"}}
         - save_cache:

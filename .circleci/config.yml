@@ -9,15 +9,15 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
     steps:
-      
+
       - checkout
       # - run: bundle install
-      # # - restore_cache:
-      # #     key: capy-{{checksum "Gemfile"}}
-      # - save_cache:
-      #     key: capy-rspec-{{checksum "Gemfile"}}
-      #     paths:
-      #       - vendor/bundle
+      - restore_cache:
+          key: capy-{{checksum "Gemfile"}}
+      - save_cache:
+          key: capy-rspec-{{checksum "Gemfile"}}
+          paths:
+            - vendor/bundle
 
 
       - run: echo "Rollback" 

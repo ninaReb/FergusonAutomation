@@ -11,15 +11,14 @@ jobs:
     steps:
 
       - checkout
-      - run: BUNDLE_GEMFILE="capy/spec/Gemfile.lock" bundle install
-      # - run:
-      #     command: ls /capy/spec
-      # - restore_cache:
-      #     key: bundler-{{checksum "Gemfile.lock"}}
-      # - save_cache:
-      #     key: bundler-{{checksum "Gemfile.lock"}}
-      #     paths:
-      #       - vendor/bundle
+      - run:
+          command: ls /capy/spec
+        - restore_cache:
+            key: bundler-{{checksum "Gemfile.lock"}}
+        - save_cache:
+            key: bundler-{{checksum "Gemfile.lock"}}
+            paths:
+              - vendor/bundle
 
 
       - run: echo "Rollback" 

@@ -7,21 +7,20 @@ version: 2
 jobs:
   build1:
     docker:
-      # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
     steps:
-
+      
       - checkout
-      - run: bundle install
-      # - restore_cache:
-      #     key: capy-{{checksum "Gemfile"}}
-      - save_cache:
-          key: capy-{{checksum "Gemfile"}}
-          paths:
-            - vendor/bundle
+      # - run: bundle install
+      # # - restore_cache:
+      # #     key: capy-{{checksum "Gemfile"}}
+      # - save_cache:
+      #     key: capy-rspec-{{checksum "Gemfile"}}
+      #     paths:
+      #       - vendor/bundle
 
 
-      # - run: echo "why no run" 
+      - run: echo "Rollback" 
       # - run: gem install cucumber
       # - run: gem install capybara
       # - run: gem install capybara-webkit

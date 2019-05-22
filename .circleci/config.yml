@@ -12,6 +12,8 @@ jobs:
 
       - checkout
       # - run: bundle install
+      - run:
+          command: ./capy/spec
       - restore_cache:
           key: capy-{{checksum "Gemfile"}}
       - save_cache:

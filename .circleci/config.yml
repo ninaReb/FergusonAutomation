@@ -5,7 +5,7 @@ dependencies:
 
 version: 2
 jobs:
-  Bundle_updates:
+  First_Test:
     docker:
       - image: circleci/ruby:2.6.0-node-browsers
         environment:
@@ -37,7 +37,7 @@ jobs:
 
 
 
-  Capy_Tests:
+  Second_Test:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.6.0-node-browsers
@@ -52,8 +52,8 @@ workflows:
   version: 2
   build1_and_build2:
     jobs:
-     - Bundle_updates
-     - Capy_Tests:
+     - First_Test
+     - Second_Test:
         requires:  
-           - Bundle_updates
+           - First_Test
        

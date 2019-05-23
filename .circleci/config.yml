@@ -43,7 +43,7 @@ jobs:
       - checkout
       - run:
           name: Start Selenium
-          command: - bundle exec cucumber
+          command: bundle exec cucumber
           background: true
 
       - run: echo "Second Build Passed!"

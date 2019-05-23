@@ -20,8 +20,8 @@ jobs:
           paths:
             - vendor/bundle
 
-       - run: gem install bundler:2.0.1
-       - run: bundle update --bundler
+      - run: gem install bundler:2.0.1
+      - run: bundle update --bundler
 
       # - run: bundle install
       # - run: gem install cucumber

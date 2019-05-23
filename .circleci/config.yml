@@ -41,11 +41,10 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          test:
-            override:
-              - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-              - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
+      - test:
+          override:
+            - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+            - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
       - run: echo "Second Build Passed!"
 
 workflows:

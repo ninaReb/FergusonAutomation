@@ -23,6 +23,7 @@ jobs:
       - run: gem install bundler:2.0.1
       - run: bundle update --bundler
       - run: cucumber --init
+      - run: bundle exec cucumber
 
       # - run: bundle install
       # - run: gem install cucumber

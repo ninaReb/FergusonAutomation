@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/rspec'
 require 'selenium-webdriver'
+require 'cucumber'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -19,4 +20,20 @@ end
  Capybara.configure do |config|
     config.default_driver = :selenium_chrome
     config.app_host = 'https://ferguson.com'
+#by ana - to clear cookies, sessions and localstorage
+    Selenium::WebDriver::Chrome.path = AppConfig.selenium_chrome_path if AppConfig.selenium_chrome_path?
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+    Capybara.javascript_driver = :chrome
+
+    config.after do
+      if self.class.include?(Capybara::DSL)
+        if Capybara.current_driver == :chrome
+          Capybara.execute_script "localStorage.clear()"
+        end
+        browser = Capybara.current_session.driver.browser
+        browser.manage.delete_all_cookies
+        Capybara.reset_sessions!
+      end
+    end
+#end ana
  end

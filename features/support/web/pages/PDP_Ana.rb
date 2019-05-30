@@ -3,285 +3,233 @@
 class PdpAnaPage
   include Capybara::DSL
 
-  # Sections
-  def setSections
-    @Description = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/div[2]')
-    @Brand_Logo = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[1]/img')
-    @Price = find(:xpath, '//*[@id="singleForm"]/div[2]')
-    @Frequently_Purchased =  find(:xpath, '//*[@id="js-bundle-builder-form"]/div[4]~')
-    @Recommended_Accessories = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[3]/div')
-    @Entire_Collection = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]')
-    @Documents = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[2]/div[2]')
-    @Anon_User_Banner = find(:xpath, '#wrapper > main > div > div.row > div.col-lg-4.col-md-4 > div.pro-docs > ul > li:nth-child(1) > a')
-    @Specifications = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[2]')
-    @Breadcrumbs = find(:xpath, '//*[@id="wrapper"]/main/div/div[1]')
-    @Color_finish = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[1]/div')
-    @Zoom_Image_Container = find(:xpath, '/html/body/div[6]')
-    @Product_Images = find(:xpath, '//*[@id="js-thumb-img"]')
-    @Product_Code = find(:xpath, '#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > div > div:nth-child(2) > div.product-info > p.pro-id')
-    # by Ana
-    @Product_Item = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[1]/p[3]')
-    @Shipping_Info = find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[3]')
-    @Shipping_Info_Content = find('js_inventory_state')
-    @In_Store_Availability = find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[1]')
-    @In_Store_Availability_Content = find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[2]/p[1]')
-    @Icon_Ada = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[1]')
-    @Icon_Green = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[2]')
-    @Icon_LeadLaw = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[3]')
-    @Product_Path = find(:xpath, '//*[@id="wrapper"]/main/div/div[1]')
-    @ProPricingOpt = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[1]')
-    @ListPricingOpt = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[2]')
-    @NoPricingOpt = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[3]')
-  end
-
-  # Buttons
-  def setButtons
-    @Entire_Collection_View_All_Button = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]/a')
-    @Entire_Collection_Right_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-next')
-    @Entire_Collection_Left_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-prev')
-    @Add_To_Cart_Button = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[4]/input[9]')
-    @Print = find('#js-down-pdf')
-    @Add_To_Lists_Button = find('#singleForm > div.total-content > div.total-button > input.button.tertiary.form-control.js-pls-select-sku')
-    @Expand_Specifications_Arrow = find('#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > p > a')
-    @Second_Image_Thumbnail = find('#js-thumb-img > a:nth-child(2) > img')
-    @First_Image_Thumbnail = find('#js-thumb-img > a.active > img')
-    @First_Color = find('#js-pls-select-container > a:nth-child(1) > img')
-    @Second_Color = find('#js-pls-select-container > a:nth-child(2) > img')
-    # By Ana
-    @Pricing_Btn = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]')
-  end
-
-  # Checkboxes
-  def setCheckboxes
-    @Combo_Product_First_Checkbox = find(:xpath, '#js-bundle-builder-form > div.bundle-builder > div.product-select > div:nth-child(1) > p > label')
-  end
-
-  # Links
-  def setLinks
-    @Anon_Register_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[1]')
-    @Anon_Login_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[2]')
-    # by Ana
-    @Check_Others_Info = find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[2]/p[2]/a')
-    @See_Whats_Available = find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[4]/p[2]/a')
-  end
-
-  # Select lists
-  def setSelects
-    @Type_or_Size_Select = find('#js-pls-select-container > span > div > div.sim-head > span.current')
-  end
-
-  # By Ana - Fields
-  def SetFields
-    @Quantity = find(:xpath, '//*[@id="singleForm"]/div[2]/div[2]/ul/li[2]/fieldset/dl/dd/input[1]')
-  end
-
   # ---------------------- CLICK METHODS-----------------------------------------------
-  def clickCheck_Others_Info_Link
-    @Check_Others_Info.click
+  def click_check_others_info_link
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[2]/p[2]/a').click
   end
 
-  def clickSee_Whats_Available_Link
-    @See_Whats_Available.click
+  def click_see_whats_available_link
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[4]/p[2]/a').click
   end
 
-  def click_ColorFinish_PChrome
+  def click_color_finish_pchrome
     find('img[title="Polished Chrome"]').click
   end
 
-  def click_ColorFinish_MBlack
+  def click_color_finish_mblack
     find('img[title="Matte Black"]').click
   end
 
-  def click_ColorFinish_BNickel
+  def click_color_finish_bnickel
     find('img[title="Brushed Nickel"]').click
   end
 
-  def click_ProdVideo
+  def click_product_video
     find('img[data-video="300770755"]').click
   end
 
-  def click_FirstProdImage
+  def click_first_prodocut_img
     find('img[itemprop="contentUrl", data-index="0"]').click
   end
 
-  def click_SecondProdImage
+  def click_second_prod_img
     find('img[itemprop="contentUrl", data-index="1"]').click
   end
 
-  def clickAddToCartButton
-    @Add_To_Cart_Button.click
+  def click_add_to_cart_btn
+    find('input[value="ADD TO CART"]').click
   end
 
-  def clickViewAllInCollection
-    @Entire_Collection_View_All_Button.click
+  def click_entire_collection_viewall_btn
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]/a').click
   end
 
-  def checkComboProduct
-    @Combo_Product_First_Checkbox.click
+  def click_print_btn
+    find('#js-down-pdf').click
   end
 
-  def clickPrint
-    @Print.click
+  def click_add_to_mylists_btn
+    find('#singleForm > div.total-content > div.total-button > input.button.tertiary.form-control.js-pls-select-sku').click
   end
 
-  def clickAddToMyListsButton
-    @Add_To_Lists_Button.click
+  def click_expand_specifications_btn
+    find('#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > p > a').click
   end
 
-  def clickEntireCollectionViewAll
-    @Entire_Collection_View_All_Button.click
+  def click_entire_collection_right_arrow
+    find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-next').click
   end
 
-  def clickExpandSpecifications
-    @Expand_Specifications_Arrow.click
+  def click_entire_collection_left_arrow
+    find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-prev').click
   end
 
-  def clickFirstImage
-    @First_Image_Thumbnail.click
+  def click_price_btn
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]').click
   end
 
-  def clickSecondImage
-    @Second_Image_Thumbnail.click
-  end
-
-  def clickEntireCollectionRightArrow
-    @Entire_Collection_Right_Arrow.click
-  end
-
-  def clickEntireCollectionLeftArrow
-    @Entire_Collection_Left_Arrow.click
-  end
-
-  # --------------------SELECT AND HOVER METHODS------------------------------------------------
-  def selectNoPricingOpt
-    select(@NoPricingOpt, from: @Pricing_Btn)
-   # drop = find(@Pricing_Btn)
-   # drop.find('option', text: 'No Pricing').select_option
- end
-
-  def hoverMouse_Image
-    image = find(:xpath, '/html/body/div[6]')
-    image.hover
-  end
-
-  #--------------------GET METHODS--------------------------------------------------------------------
-  def getCheckAvailabilityModal
-    find(:xpath, '//*[@id="checkStores"]/div/div')
-  end
-
-  def getDescription
-    @Description
- end
-
-  def getProduct_Code
-    @Product_Code
-  end
-
-  def getProduct_Item
-    @Product_Item
-  end
-
-  def getSpecifications
-    @Specifications
-  end
-
-  def getShipping_Info
-    @Shipping_Info
-  end
-
-  def getShipping_Info_Content
-    @Shipping_Info_Content
-  end
-
-  def getQuantity
-    @Quantity
-  end
-
-  def getAdaIcon
-    @Icon_Ada
-  end
-
-  def getGreenIcon
-    @Icon_Green
-   end
-
-  def getLeadLawIcon
-    @Icon_LeadLaw
-  end
-
-  def getPrice
-    @Price
-  end
-
-  def getAdd_To_Cart_Btn
-    @Add_To_Cart_Button
-  end
-
-  def getAdd_To_Lists_Btn
-    @Add_To_Lists_Button
-  end
-
-  def getPrintBtn
-    @Print
-  end
-
-  def getModalHoverImage # verificar qual é o elemento certo da modal que aparece no hover do mouse
-    find(:xpath, '//*[@id="destination_publishing_iframe_ferguson_0"]')
-  end
-
-  def getProduct_Path
-    @Product_Path
-  end
-
-  def getBrand_Logo
-    @Brand_Logo
-  end
-
-  def getIn_Store_Availability
-    @In_Store_Availability
-  end
-
-  def getIn_Store_Availability_Content
-    @In_Store_Availability_Content
-  end
-
-  def getFrequently_Purchased
-    @Frequently_Purchased
-  end
-
-  def getEntire_Collection
-    @Entire_Collection
-  end
-
-  def getProPricingOpt
-    @ProPricingOpt
-  end
-
-  def getListPricingOpt
-    @ListPricingOpt
-  end
-
-  def getNoPricingOpt
-    @NoPricingOpt
-  end
-
-  def getCheckoutMessageLink
-    find(:xpath, '//*[@id="singleForm"]/div[2]/div[3]/a')
-  end
-
-  def clickCheckoutMessageLink
+  def click_checkout_msg_link
     find(:xpath, '//*[@id="singleForm"]/div[2]/div[3]/a').click
   end
 
-  def getCartAmount
+  # --------------------SELECT AND HOVER METHODS------------------------------------------------
+  def select_no_pricing_opt
+    drop = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[3]')
+    drop_parent = find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[1]')
+    drop.find(drop, from: drop_parent).select
+  end
+
+  def zomm_mouse_image
+    zoom = find(:xpath, '/html/body/div[6]')
+    zoom.hover
+  end
+
+  def fetch_hover_image_modal
+    find('body > div.zoomWindowContainer > div')
+  end
+
+  #--------------------GET METHODS--------------------------------------------------------------------
+  def fetch_check_availability_modal
+    find(:xpath, '//*[@id="checkStores"]/div/div')
+  end
+
+  def fetch_description_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/div[2]').text
+  end
+
+  def fetch_product_code
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[1]/p[2]/span')
+  end
+
+  def fetch_product_item
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[1]/p[3]')
+  end
+
+  def fetch_specifications_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[2]')
+  end
+
+  def fetch_shipping_info_section
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[3]')
+  end
+
+  def fetch_shipping_info_content
+    find('js_inventory_state').text
+  end
+
+  def fetch_quantity_field
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[2]/ul/li[2]/fieldset/dl/dd/input[1]')
+  end
+
+  def fetch_ada_icon
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[1]')
+  end
+
+  def fetch_green_icon
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[2]')
+  end
+
+  def fetch_lead_law_icon
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[2]/i[3]')
+  end
+
+  def fetch_price
+    find(:xpath, '//*[@id="singleForm"]/div[2]')
+  end
+
+  def fetch_add_to_cart_btn
+    find('input[value="ADD TO CART"]')
+  end
+
+  def fetch_add_to_lists_btn
+    find('#singleForm > div.total-content > div.total-button > input.button.tertiary.form-control.js-pls-select-sku')
+  end
+
+  def fetch_print_btn
+    find('#js-down-pdf')
+  end
+
+  def fetch_product_path
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[1]')
+  end
+
+  def fetch_brand_logo
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[1]/p[1]/img')
+  end
+
+  def fetch_in_store_availability
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[1]')
+  end
+
+  def fetch_in_store_availability_content
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[5]/div[2]/p[1]').text
+  end
+
+  def fetch_frequently_purchased
+    find(:xpath, '//*[@id="js-bundle-builder-form"]/div[4]~')
+  end
+
+  def fetch_entire_collection
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]')
+  end
+
+  def fetch_pro_pricing_opt
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[1]')
+  end
+
+  def fetch_list_pricing_opt
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[2]')
+  end
+
+  def fetch_no_pricing_opt
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[1]/div[4]/div/span/div/div[2]/div/ul/div/li[3]')
+  end
+
+  def fetch_checkout_message_Link
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[3]/a')
+  end
+
+  def fetch_cart_amount
     find(:xpath, '//*[@id="wrapper"]/header/div[4]/div[3]/ul/li[2]/a/span/span[2]')
   end
 
-  def getAddMyListModal
+  def fetch_add_mylist_modal
     find(:xpath, '//*[@id="wishListModal"]/div/div')
   end
 
-  def getSpecification_ColorFinish
+  def fetch_specification_color_finish
     find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[2]/div/dl[12]/dd/div')
+  end
+
+  def fetch_checkout_msg
+    find(:xpath, '//*[@id="singleForm"]/div[2]/div[3]').text
+  end
+
+  def fetch_recommended_accessories_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[3]/div')
+  end
+
+  def fetch_documents_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[2]/div[2]')
+  end
+
+  def fetch_annonimous_user_banner_section
+    find(:xpath, '#wrapper > main > div > div.row > div.col-lg-4.col-md-4 > div.pro-docs > ul > li:nth-child(1) > a')
+  end
+
+  def fetch_bread_crumbs_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[1]')
+  end
+
+  def fetch_color_finish_section
+    find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[1]/div/div[2]/div[1]/div')
+  end
+
+  def fetch_image_container
+    find(:xpath, '/html/body/div[6]')
+  end
+
+  def fetch_product_images
+    find(:xpath, '//*[@id="js-thumb-img"]')
   end
 end

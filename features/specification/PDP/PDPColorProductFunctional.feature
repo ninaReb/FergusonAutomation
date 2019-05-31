@@ -1,4 +1,4 @@
-@NinaTest
+@Demo
 Feature: Color Products PDP Functional Validation
 
    Page Validation for a product with Color options

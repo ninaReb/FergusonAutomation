@@ -1,3 +1,4 @@
+@Demo
 Feature: Combo Products PDP Functional Validation
 
    Page Validation for a product with Combo options

@@ -3,7 +3,7 @@ Feature: Color Products PDP Validation
    Page Validation for a product with Color options
 
 
- @NinaTest
+ @Demo
  @ColorSections
     Scenario: Verify Sections of PDP
         Given I am logged on Ferguson desktop site

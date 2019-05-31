@@ -3,7 +3,7 @@ Feature: Combo Products PDP Validation
    Page Validation for a product with Combo options
 
 
- @NinaTest
+ @Demo
  @ComboSections
     Scenario: Verify Sections of PDP
         Given I am logged on Ferguson desktop site

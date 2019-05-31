@@ -1,6 +1,7 @@
 class PdpNina
   include Capybara::DSL
 
+  #################Paths######################
   #Sections
   def setSections
     @Size_Options = find('#wrapper > main > div.container > div.row > div:nth-child(5) > div > div > ul')
@@ -39,6 +40,56 @@ class PdpNina
     @Add_To_List_Modal = find('#wishListModal > div > div')
     @Order_Summary = find('expect(page).to have_content(@PdpNina.getEntireCollection)')
   end
+  #Links
+  def setLinks
+    @Anon_Register_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[1]')
+    @Anon_Login_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[2]')
+    @Size_Availability_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(2) > p:nth-child(2) > a')
+    @Size_Shipping_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(4) > p:nth-child(2) > a')
+    @Buying_Options_Link = find('#mutipleFormTemp > li:nth-child(1) > div.sku-title > div.st-right > span > a')
+    @Hide_Options_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-title > div.st-right > span > a')
+    @Size_Product = find('#wrapper > main > div > div > div.col-lg-9.col-md-9 > div > div.search-results-box > ul > li:nth-child(1) > div.sr-item-right.clearfix > div.sir-first-table > div > div.prod-desc > div.prod-name.js-ellipsis.js-ellipsis-end > a > p')
+  end
+  #Buttons
+  def setButtons
+    @Entire_Collection_View_All_Button = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]/a')
+    @Entire_Collection_Right_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-next')
+    @Entire_Collection_Left_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-prev')
+    @Add_To_Cart_Button = find('#singleForm > div.total-content > div.total-button > input.button.primary.form-control.js-add-to-cart')
+    @Print = find('#js-down-pdf')
+    @Add_To_Lists_Button = find('#singleForm > div.total-content > div.total-button > input.button.tertiary.form-control.js-pls-select-sku')
+    @Add_To_Cart_Button = find('#singleForm > div.total-content > div.total-button > input.button.primary.form-control.js-pls-select-sku')
+    @Expand_Specifications_Arrow = find('#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > p > a')
+    @Second_Image_Thumbnail = find('#js-thumb-img > a:nth-child(2) > img')
+    @First_Image_Thumbnail = find('#js-thumb-img > a.active > img')
+    @First_Color = find('#js-pls-select-container > a:nth-child(1) > img')
+    @Second_Color = find('#js-pls-select-container > a:nth-child(2) > img')
+    @FPT_Add_To_Cart = find('#js-bundle-builder-form > div.bundle-builder > div.product-row.clearfix > div.total-price > input')
+    @Size_Add_To_cart_Button = find('#multi_pdp_addTocart')
+    @Size_Add_To_My_Lists_Button = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-right > div.button-box.clearfix > input.button.tertiary.form-control.js-add-to-wishlist')
+  end
+  #Checkboxes
+  def setCheckboxes
+    @Combo_Product_First_Checkbox = find( '#js-bundle-builder-form > div.bundle-builder > div.product-select > div:nth-child(1) > p > label')
+    @Active_Box = find('//*[@id="js-bundle-builder-form"]/div[4]/div[2]/div[1]/p/label')
+  end
+  #Links
+  def setLinks
+    @Anon_Register_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[1]')
+    @Anon_Login_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[2]')
+    @Size_Availability_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(2) > p:nth-child(2) > a')
+    @Size_Shipping_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(4) > p:nth-child(2) > a')
+    @Buying_Options_Link = find('#mutipleFormTemp > li:nth-child(1) > div.sku-title > div.st-right > span > a')
+    @Hide_Options_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-title > div.st-right > span > a')
+    @Size_Product = find('#wrapper > main > div > div > div.col-lg-9.col-md-9 > div > div.search-results-box > ul > li:nth-child(1) > div.sr-item-right.clearfix > div.sir-first-table > div > div.prod-desc > div.prod-name.js-ellipsis.js-ellipsis-end > a > p')
+  end
+  #Select lists
+  def setSelects
+    @Type_or_Size_Select = find('#js-pls-select-container > span > div > div.sim-head > span.current')
+  end
+
+
+  #################Getters#####################
 
   def getSizeOptions
     @Size_Options
@@ -64,7 +115,6 @@ class PdpNina
   def getSizeQty
     @Size_Qty
   end
-
   def getOrderSummary
     @Order_Summary
   end
@@ -146,233 +196,151 @@ class PdpNina
   def getName
     @Product_Name
   end
-
-  #Buttons
-  def setButtons
-    @Entire_Collection_View_All_Button = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]/a')
-    @Entire_Collection_Right_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-next')
-    @Entire_Collection_Left_Arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-prev')
-    @Add_To_Cart_Button = find('#singleForm > div.total-content > div.total-button > input.button.primary.form-control.js-add-to-cart')
-    @Print = find('#js-down-pdf')
-    @Add_To_Lists_Button = find('#singleForm > div.total-content > div.total-button > input.button.tertiary.form-control.js-pls-select-sku')
-    @Add_To_Cart_Button = find('#singleForm > div.total-content > div.total-button > input.button.primary.form-control.js-pls-select-sku')
-    @Expand_Specifications_Arrow = find('#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > p > a')
-    @Second_Image_Thumbnail = find('#js-thumb-img > a:nth-child(2) > img')
-    @First_Image_Thumbnail = find('#js-thumb-img > a.active > img')
-    @First_Color = find('#js-pls-select-container > a:nth-child(1) > img')
-    @Second_Color = find('#js-pls-select-container > a:nth-child(2) > img')
-    @FPT_Add_To_Cart = find('#js-bundle-builder-form > div.bundle-builder > div.product-row.clearfix > div.total-price > input')
-    @Size_Add_To_cart_Button = find('#multi_pdp_addTocart')
-    @Size_Add_To_My_Lists_Button = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-right > div.button-box.clearfix > input.button.tertiary.form-control.js-add-to-wishlist')
+  def getSizeAddToCartBtn
+    @Size_Add_To_cart_Button
   end
-
-    def getSizeAddToCartBtn
-      @Size_Add_To_cart_Button
-    end
-
-    def getSizeAddToListsBtn
-      @Size_Add_To_My_Lists_Button
-    end
-
-    def getPrintBtn
-      @Print
-    end
-
-    def getAddToCartBtn
-      @Add_To_Cart_Button
-    end  
-
-    def getEntireCollectionViewAllBtn
-      @Entire_Collection_View_All_Button
-    end
-
-    def getEntireCollectionRightBtn
-      @Entire_Collection_Right_Arrow
-    end
-
-    def getEntireCollectionLefttBtn
-      @Entire_Collection_Left_Arrow
-    end
-
-    def getAddToListsBtn
-      @Add_To_Lists_Button
-    end
-
-    def getExpandSpecsArrow
-      @Expand_Specifications_Arrow
-    end
-
-    def getSecondImgBtn
-      @Second_Image_Thumbnail
-    end
-
-    def getFirstImgBtn
-      @First_Image_Thumbnail
-    end
-
-    def getFirstColor
-      @First_Color
-    end
-
-    def getSecondColor
-      @Second_Color
-    end
-
-
-  #Checkboxes
-  def setCheckboxes
-    @Combo_Product_First_Checkbox = find( '#js-bundle-builder-form > div.bundle-builder > div.product-select > div:nth-child(1) > p > label')
-    @Active_Box = find('//*[@id="js-bundle-builder-form"]/div[4]/div[2]/div[1]/p/label')
+  def getSizeAddToListsBtn
+    @Size_Add_To_My_Lists_Button
   end
-
+  def getPrintBtn
+    @Print
+  end
+  def getAddToCartBtn
+    @Add_To_Cart_Button
+  end  
+  def getEntireCollectionViewAllBtn
+    @Entire_Collection_View_All_Button
+  end
+  def getEntireCollectionRightBtn
+    @Entire_Collection_Right_Arrow
+  end
+  def getEntireCollectionLefttBtn
+    @Entire_Collection_Left_Arrow
+  end
+  def getAddToListsBtn
+    @Add_To_Lists_Button
+  end
+  def getExpandSpecsArrow
+    @Expand_Specifications_Arrow
+  end
+  def getSecondImgBtn
+    @Second_Image_Thumbnail
+  end
+  def getFirstImgBtn
+    @First_Image_Thumbnail
+  end
+  def getFirstColor
+    @First_Color
+  end
+  def getSecondColor
+    @Second_Color
+  end
   def getActiveBox
     @Active_Box
   end
 
-  #Links
-  def setLinks
-    @Anon_Register_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[1]')
-    @Anon_Login_Link = find(:xpath, '//*[@id="singleSku-productTotal"]/div/a[2]')
-    @Size_Availability_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(2) > p:nth-child(2) > a')
-    @Size_Shipping_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(4) > p:nth-child(2) > a')
-    @Buying_Options_Link = find('#mutipleFormTemp > li:nth-child(1) > div.sku-title > div.st-right > span > a')
-    @Hide_Options_Link = find('#mutipleFormTemp > li.sku-list.open > div.sku-title > div.st-right > span > a')
-    @Size_Product = find('#wrapper > main > div > div > div.col-lg-9.col-md-9 > div > div.search-results-box > ul > li:nth-child(1) > div.sr-item-right.clearfix > div.sir-first-table > div > div.prod-desc > div.prod-name.js-ellipsis.js-ellipsis-end > a > p')
-  end
+  #######################Clicks##########################
 
-  #Select lists
-  def setSelects
-    @Type_or_Size_Select = find('#js-pls-select-container > span > div > div.sim-head > span.current')
-  end
-
-  
   def clickSizeProduct
     link = find('#wrapper > main > div > div > div.col-lg-9.col-md-9 > div > div.search-results-box > ul > li:nth-child(1) > div.sr-item-right.clearfix > div.sir-first-table > div > div.prod-desc > div.prod-name.js-ellipsis.js-ellipsis-end > a > p')
     link.click
   end
-
   def clickSizeAvailabilitylink
     link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(2) > p:nth-child(2) > a')
     link.click
   end
-
   def clickSizeShippingLink
     link = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-left > div.available-store > div:nth-child(4) > p:nth-child(2) > a')
     link.click
   end
-
   def clickBuyingOptionsLink
     link = find('#mutipleFormTemp > li:nth-child(1) > div.sku-title > div.st-right > span > a')
     link.click
   end
-
   def clickHideLink
     link = find('#mutipleFormTemp > li.sku-list.open > div.sku-title > div.st-right > span > a')
     link.click
   end
-
   def clickSizeCartBtn
     button = find('#multi_pdp_addTocart')
     button.click
   end
-
   def clickSizeListBtn
     button = find('#mutipleFormTemp > li.sku-list.open > div.sku-extend > div.se-right > div.button-box.clearfix > input.button.tertiary.form-control.js-add-to-wishlist')
     button.click
   end
-
   def goToCart
     button = find('#wrapper > header > div.header-container.container > div.header-details-user > ul > li.cart.i-cart > a > span')
     button.click
   end
-
   def clickArrowRight
     arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-next')
     arrow.click
     sleep 3
   end
-
   def clickArrowLeft
     arrow = find('#wrapper > main > div > div.row > div.entire-collection.row > div > div.carousel-head > div > a.pager-prev')
     arrow.click
     sleep 3
   end
-
-
   def clickAddToCartButton
     button = find('#singleForm > div.total-content > div.total-button > input.button.primary.form-control.js-add-to-cart')
     button.click
   end
-
   def clickFPTAddToCartButton
     button = find('#js-bundle-builder-form > div.bundle-builder > div.product-row.clearfix > div.total-price > input')
     button.click
     sleep 2
   end
-
   def clickViewAllInCollection
     Entire_Collection_View_All_Button.click
   end
-
   def checkComboProduct
     Combo_Product_First_Checkbox.click
   end
-
   def clickPrint
     button = find('#js-down-pdf')
     button.click
   end
-
   def clickCheckBox
     box = find( '#js-bundle-builder-form > div.bundle-builder > div.product-select > div:nth-child(1) > p > label')
     box.click
     sleep 3
   end
-
   def zoom_mouse_image
     zoom = find(:xpath, '/html/body/div[6]')
     zoom.hover
   end
-
   def getHoverImageModal
     find('body > div.zoomWindowContainer > div')
   end
-
   def clickAddToMyListsButton
     button = find(:xpath, '//*[@id="singleForm"]/div[2]/div[4]/input[10]')
     button.click
   end
-
   def clickEntireCollectionViewAll
     button = find(:xpath, '//*[@id="wrapper"]/main/div/div[2]/div[4]/div/div[1]/a')
     button.click
   end
-
   def clickExpandSpecifications
     expand = find('#wrapper > main > div > div.row > div.col-lg-8.col-md-8 > p > a')
     expand.click
   end
-
   def clickFirstImage
     First_Image_Thumbnail.click
   end
-
   def clickFirstColor
     First_Color.click
   end
-
   def clickSecondColor
     Second_Color.click
   end
-
   def clickSecondImage 
     Second_Image_Thumbnail.click
   end
-
   def clickEntireCollectionRightArrow
     Entire_Collection_Right_Arrow.click
   end
-
   def clickEntireCollectionLeftArrow
     Entire_Collection_Left_Arrow.click
   end

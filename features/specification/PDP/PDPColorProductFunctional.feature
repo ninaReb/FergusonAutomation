@@ -1,115 +1,115 @@
 @Demo
-Feature: Combo Products PDP Functional Validation
+Feature: Color Products PDP Functional Validation
 
-   Page Validation for a product with Combo options
+   Page Validation for a product with Color options
  
 
-    @ComboFunctional
+    @ColorFunctional
+    @Color
+    Scenario: Testing Color Selection
+        Given I am logged on Ferguson desktop site
+        When I go to the Color Product's Details page  
+        When I click on a color option for the product
+        Then I should see the product change to the color variant selected
+
+    @ColorFunctional
     @Stores
     Scenario: Check Other Stores
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page 
+        When I go to the Color Product's Details page 
         When I Click the Check other stores link
         Then I should see the store modal
         
-    @ComboFunctional
+    @ColorFunctional
     @availability
     Scenario: Check Availability
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page 
+        When I go to the Color Product's Details page 
         When I Click the See Whats Available link
         Then I should see the availability modal
-        
-    @ComboFunctional
+
+    @ColorFunctional
     @Specs
     Scenario: Testing Specs Arrow
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page 
+        When I go to the Color Product's Details page 
         When I Click the blue arrow in the Specifications section
-        Then I should see the Combo Product's Specifications section expanded
+        Then I should see the Color Product's Specifications section expanded
 
-    @ComboFunctional
+    @ColorFunctional
     @Zoom
     Scenario: Testing Image zoom
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page
+        When I go to the Color Product's Details page
         When I hover over the main Image
         Then I should see the zoomed image pop up
     
-    @ComboFunctional
+    @ColorFunctional
     @AddToList
     Scenario: Testing Add To my Lists Button
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page  
+        When I go to the Color Product's Details page  
         When I click on Add To my Lists Button
         Then I should see the Add To My Lists modal
 
-    # @ComboFunctional
-    # @Color
-    # Scenario: Testing Color Selection
-    #     Given I am logged on Ferguson desktop site
-    #     When I go to the Combo Product's Details page  
-    #     When I click on a color option for the product
-    #     Then I should see the product change to the color variant selected
-
-    # @ComboFunctional    
-    # @Print
-    # Scenario: Testing Print Button
-    #     Given I am logged on Ferguson desktop site
-    #     When I go to the Combo Product's Details page  
-    #     When I click the print button
-    #     Then I should see the print preview popup
-
-
-    @ComboFunctional
-    @AddToCartCombo
+    @ColorFunctional
+    @AddToCartColor
     Scenario: Testing Add to Cart Button
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page  
+        When I go to the Color Product's Details page  
         When I click on the Add to Cart Button
         Then I should see a brief with the Checkout Now link
-        And I should see the product in the Cart Page 
+        And I should see the Color product in the Cart Page 
 
-    @ComboFunctional
+    @ColorFunctional
     @ViewAll
     Scenario: Testing View All in Entire Collections
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page 
+        When I go to the Color Product's Details page 
         When I click on the View All link 
         Then I should see the collection page 
 
 
-    @ComboFunctional
+    @ColorFunctional
     @Box
     Scenario: Testing FPT first Checkbox 
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page 
+        When I go to the Color Product's Details page 
         When I click on the first Checkbox on the Frequently Purchased Together section
         And I click the checkbox again
         Then I should see the all checkboxes active
       
-    @ComboFunctional
+    @ColorFunctional
     @FPTCart
     Scenario: Testing Add to Cart Button in FPT section
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page  
+        When I go to the Color Product's Details page  
         When I click on the Add to Cart button in the Frequently Purchased Together section
         Then I should see the cart page
         And I should see all the products from the FTP version added to cart
 
-    @ComboFunctional
+    @ColorFunctional
     @Arrow
     Scenario: Testing Entire Collection Right Arrow
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page  
+        When I go to the Color Product's Details page  
         When I click on the Right-side arrow in the Entire collection section
         Then I should see the products shift
 
-    @ComboFunctional
+    @ColorFunctional
     @Arrow
     Scenario: Testing Entire Collection Left Arrow
         Given I am logged on Ferguson desktop site
-        When I go to the Combo Product's Details page  
+        When I go to the Color Product's Details page  
         When I click on the Left-side arrow in the Entire collection section
         Then I should see the products shift
+
+    @ColorFunctional
+    @Imgs
+    Scenario: Testing Imgs selection
+        Given I am logged on Ferguson desktop site
+        When I go to the Color Product's Details page  
+        When I click on the second image
+        Then I should see the second image show up in the zoom container
+
 

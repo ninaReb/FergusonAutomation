@@ -20,10 +20,3 @@ RSpec.configure do |config|
   end
 
  # World(Test::Unit::Assertions)
-
-
-
-
-
-email = 'akratz@mcfadyen.com'
-password ='Admin1976'
